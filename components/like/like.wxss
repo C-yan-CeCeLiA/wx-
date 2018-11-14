@@ -1,0 +1,17 @@
+/* components/like/like.wxss */
+.container image{
+  width: 32rpx;
+  height: 28rpx;
+}
+.container text{
+  position: absolute;
+top: -5rpx;
+  left:38rpx;
+  font-size:24rpx;
+  color:#bbbbbb;
+}
+.container{
+  position: relative;
+ 
+
+}

@@ -1,0 +1,7 @@
+<view class="container" bindtap='praise' >
+
+  <image src="{{like?yesSrc:noSrc}}" ></image>
+  <text>{{like? count2 :count1}}</text>
+</view>
+
+ 

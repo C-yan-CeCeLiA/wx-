@@ -1,0 +1,5 @@
+<view class='wrap'>
+  <view class="chunk color1" />
+  <view class="chunk color2" />
+  <view class="chunk color3" />
+</view>
