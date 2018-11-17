@@ -1,0 +1,18 @@
+/* components/navi/index.wxss */
+.container{
+  
+  display:inline-flex;
+  flex-direction: row;
+  justify-content:space-between;
+  align-items: center;
+  border-radius: 2px; 
+  background: #f7f7f7;
+  width: 600rpx;
+  height: 80rpx;
+
+
+}
+.left,.right{
+  width: 80rpx;
+  height:80rpx;
+}

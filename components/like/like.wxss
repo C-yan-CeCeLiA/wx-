@@ -12,6 +12,7 @@ top: -5rpx;
 }
 .container{
   position: relative;
+  width: 120rpx;
  
 
 }

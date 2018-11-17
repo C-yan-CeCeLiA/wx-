@@ -1,5 +1,8 @@
 {
   "usingComponents":{
-    "v-like":"../../components/like/like"
+    "v-like":"../../components/like/like",
+    "v-movie":"../../components/classic/movie/index",
+    "v-epsoide": "../../components/epsoide/index",
+    "v-navi":"../../components/navi/index"
   }
 }

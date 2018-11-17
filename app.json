@@ -3,15 +3,17 @@
     "pages/classic/classic",
     "pages/books/index",
     "pages/like/like"
+    
+
   ],
- "window": {
-   "navigationBarBackgroundColor": "#ffffff",
-   "navigationBarTextStyle": "black",
-   "navigationBarTitleText": "旧岛小样",
-   "backgroundColor": "#eeeeee",
-   "backgroundTextStyle": "light",
-   "enablePullDownRefresh": false
- },
+  "window": {
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "旧岛小样",
+    "backgroundColor": "#eeeeee",
+    "backgroundTextStyle": "light",
+    "enablePullDownRefresh": false
+  },
   "tabBar": {
     "list": [
       {

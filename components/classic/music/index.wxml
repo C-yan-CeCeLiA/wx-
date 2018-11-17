@@ -1,0 +1,8 @@
+<view class='container'>
+  <image src='{{img}}'></image>
+  <image src='{{playSrc}}'></image>
+  <image src='./images/music@tag.png'></image>
+  <text>{{content}}</text>
+
+
+</view>

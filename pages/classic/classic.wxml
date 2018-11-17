@@ -1,1 +1,12 @@
-<v-like />
+<view class='container'>
+  <view class='header'>
+    <v-epsoide class="epsoide" index="{{classicData.index}}" />
+    <v-like bindlike="onlike" like="{{classicData.like_status}}" count="{{classicData.fav_nums}}" class="like" />
+
+  </view>
+
+
+  <v-movie img="{{classicData.image}}" content="{{classicData.content}}" />
+
+  <v-navi content="{{classicData.title}}" bindright="previous" bindleft="next"  latest="{{latest}}" first="{{first}}" class="navi" />
+</view>

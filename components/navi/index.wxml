@@ -1,0 +1,5 @@
+<view class='container'>
+  <image src='{{latest ? lnoSrc: lyesSrc  }}' bindtap='onLeft' class='left'></image>
+  <text class='title'>{{content}}</text>
+  <image src='{{first ? rnoSrc:ryesSrc}}'bindtap='onRight' class='right'></image>
+</view>

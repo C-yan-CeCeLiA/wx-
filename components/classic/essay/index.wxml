@@ -1,0 +1,4 @@
+<view class="contanier">
+  <image src='img'></image>
+  <image src='./images/essay@tag.png'></image>
+</view>
