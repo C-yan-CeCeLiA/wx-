@@ -1,3 +1,8 @@
 {
-  "navigationBarTitleText": "无梦相赠"
+  "navigationBarTitleText": "无梦相赠",
+  "usingComponents": {
+    "v-book": "../../components/books/index",
+    "v-search":"../../components/search/index"
+  }
+  
 }

@@ -1,5 +1,21 @@
-<view class='wrap'>
-  <view class="chunk color1" />
-  <view class="chunk color2" />
-  <view class="chunk color3" />
+
+<view class='container'>
+  <!-- <view class="header">
+    <view class='search'>
+      <image src='../../images/book/search.png'></image>
+      <text>搜索书籍</text>
+    </view>
+    
+  </view> -->
+  <v-search />
+  <view class='sub-container'>
+    <view class='sub-header'>
+      <image src='../../images/book/quality.png'></image>
+    </view>
+    <view class='books-container'>
+      <block wx:for="{{books}}" wx:key="id">
+        <v-book book="{{item}}" />
+      </block>
+    </view>
+  </view>
 </view>
