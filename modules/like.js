@@ -14,6 +14,17 @@ class likeModule extends HTTP{
 
     })
   }
+
+
+  // 获取点赞人数，和点赞状态，（从缓存中分离）
+  _getLikeStatus(type, art_id, scallback) {
+    this.request({
+      url: `/classic/${type}/${art_id}/favor`,
+      success: (res) => {
+        scallback(res)
+      }
+    })
+  }
 }
 export {
   likeModule

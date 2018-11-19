@@ -1,4 +1,5 @@
-<view class="contanier">
-  <image src='img'></image>
-  <image src='./images/essay@tag.png'></image>
+<view hidden='{{hidden}}' class='contaniner'>
+  <image class='img' src='{{img}}'></image>
+  <image class='tag' src='images/essay@tag.png'></image>
+  <text  class='content'>{{content}}</text>
 </view>

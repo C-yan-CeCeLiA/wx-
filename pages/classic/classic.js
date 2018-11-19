@@ -11,7 +11,9 @@ Page({
   data: {
     latest:true,
     first:false,
-    classicData:null
+    classicData:null,
+    like_status:false,
+    fav_nums:0
   },
 
   /**
@@ -19,34 +21,36 @@ Page({
    */
   onLoad: function (options) {
     classicModule.getlatest((res)=>{
-      console.log(res);
+      // this._getLike(res.type, res.id)
+      // console.log(res);
       this.setData({
-        classicData:res
+        classicData:res,
+        like_status: res.like_status,
+        fav_nums: res.fav_nums
       })
     })
   },
 onlike:function(event){
  let behavior = event.detail.behavior;
-//  console.log(event)
+
   like.like(behavior, this.data.classicData.id,this.data.classicData.type)
-0},
+ },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   previous:function(event){
-    classicModule.getPrevious(this.data.classicData.index,(res)=>{
-      
-      this.setData({
-        classicData:res,
-        first: classicModule.isFirst(res.index),
-        latest: classicModule.isLatest(res.index)
-      })
-    })
+   this._upGetClassic("previous")
   },
   next:function(event){
-    classicModule.getNext(this.data.classicData.index,(res)=>{
-      console.log(res.index)
-      console.log(classicModule.isLatest(res.index))
+    this._upGetClassic("next")
+  },
+
+
+
+  _upGetClassic(nextorprovius){
+    
+    classicModule.getClassic(this.data.classicData.index, nextorprovius,(res)=>{
+      this._getLike(res.type,res.id)
       this.setData({
         classicData: res,
         first: classicModule.isFirst(res.index),
@@ -54,6 +58,32 @@ onlike:function(event){
       })
     })
   },
+_getLike(type,id){
+  like._getLikeStatus(type,id,(res)=>{
+    console.log(`点赞信息${res}`)
+    this.setData({
+      like_status: res.like_status,
+      fav_nums: res.fav_nums
+    })
+  })
+},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   onReady: function () {
 
   },

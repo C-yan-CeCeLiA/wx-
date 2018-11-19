@@ -1,5 +1,5 @@
-<view class='movie-contaniner'>
-  <image class='movie-img' src='{{img}}'></image>
+<view hidden='{{hidden}}' class='contaniner'>
+  <image class='img' src='{{img}}'></image>
   <image class='tag' src='images/movie@tag.png'></image>
   <text  class='content'>{{content}}</text>
 </view>

@@ -26,9 +26,10 @@ Component({
    */
   methods: {
     onRight:function(){
-      if(!this.properties.frist){
-        this.triggerEvent("right",{},{})
+      if (this.properties.first){
+       return false
       }
+      this.triggerEvent("right", {}, {})
     },
     onLeft:function(){
       if(!this.properties.latest){
