@@ -1,2 +1,48 @@
-<!--pages/books/books_detail/index.wxml-->
-<text>pages/books/books_detail/index.wxml</text>
+<view class="container">
+
+  <view class="head">
+    <image src="{{detail.image}}"></image>
+    <text class='title'>{{detail.title}}</text>
+    <text class='author'>{{detail.author}}</text>
+  </view>
+  <view class="sub-container">
+    <text class="headline">短评</text>
+    <!-- <text class="shadow" wx:if="{{noComment}}">还没有短评</text> -->
+    <view class="comment-container">
+      <!-- <block wx:for="{{util.limit(comments,15)}}">
+        <tag-cmp class="tag" text="{{item.content}}">
+          <text class="num" slot="after">{{'+' + item.nums}}</text>
+        </tag-cmp>
+      </block> -->
+      <block wx:for="{{comment}}" wx:key="index">
+        <text>{{item.content}}</text>
+        <text class="num" slot="after">{{'+' + item.nums}}</text>
+      </block>
+    </view>
+  </view>
+  <view class="sub-container">
+    <text class="headline">内容简介</text>
+    <!-- <text decode="{{true}}" class="content">{{util.format(book.summary)}}</text> -->
+    <text>{{detail.summary}}</text>
+  </view>
+  <view class="sub-container">
+    <text class="headline">书本信息</text>
+    <view class="detail-contaner">
+      <view class="vertical">
+        <text class="description">出版社</text>
+        <text class="description">出版年</text>
+        <text class="description">页数</text>
+        <text class="description">定价</text>
+        <text class="description">装帧</text>
+      </view>
+      <view class="vertical">
+        <text class="">{{detail.publisher}}</text>
+        <text class="">{{detail.pubdate}}</text>
+        <text class="">{{detail.pages}}</text>
+        <text class="">{{detail.price}}</text>
+        <text class="">{{detail.binding}}</text>
+      </view>
+
+    </view>
+  </view>
+</view>

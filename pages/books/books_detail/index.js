@@ -23,13 +23,15 @@ Page({
     let fav = BookModule.getListStaute(id);
 
     detail.then((res)=>{
+      console.log(res)
      this.setData({
-       detail
+       detail:res
      })
     })
     comment.then(res=>{
+      console.log(res.comments)
       this.setData({
-        comment
+        comment:res.comments
       })
     })
     fav.then(res=>{
