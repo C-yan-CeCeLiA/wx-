@@ -206,10 +206,10 @@
   margin-bottom: 10rpx;
   border-radius: 15px !important;
 }
-
+/* 
 .comment-container > tag-cmp:nth-child(2) view {
   background-color: #eefbff !important;
-}
+} */
 
 .posting-container .comment-container {
   padding: 40rpx 30rpx 0 30rpx;
@@ -246,3 +246,10 @@
   margin-bottom: 30rpx;
 }
 
+
+.ex-tag1{
+  background: #fffbdd !important;
+}
+.ex-tag2{
+  background: #eefbff !important;
+}

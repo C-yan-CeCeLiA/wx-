@@ -15,8 +15,9 @@
         </tag-cmp>
       </block> -->
       <block wx:for="{{comment}}" wx:key="index">
-        <text>{{item.content}}</text>
-        <text class="num" slot="after">{{'+' + item.nums}}</text>
+        <v-tag  class="tag" tag-class="{{index==0 ? 'ex-tag1':'' || index==1 ? 'ex-tag2' : ''}}"  text="{{item.content}}">
+          <text class="num" slot="after">{{'+' + item.nums}}</text>
+        </v-tag> 
       </block>
     </view>
   </view>
