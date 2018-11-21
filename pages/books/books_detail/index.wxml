@@ -10,12 +10,9 @@
     <text class="headline">短评</text>
     <!-- <text class="shadow" wx:if="{{noComment}}">还没有短评</text> -->
     <view class="comment-container">
-      <!-- <block wx:for="{{util.limit(comments,15)}}">
-        <tag-cmp class="tag" text="{{item.content}}">
-          <text class="num" slot="after">{{'+' + item.nums}}</text>
-        </tag-cmp>
-      </block> -->
-      <block wx:for="{{comment}}" wx:key="index">
+   
+   
+      <block wx:for="{{m1.limit(comment.comments,15)}}" wx:key="index">
         <v-tag  class="tag" tag-class="{{index==0 ? 'ex-tag1':'' || index==1 ? 'ex-tag2' : ''}}"  text="{{item.content}}">
           <text class="num" slot="after">{{'+' + item.nums}}</text>
         </v-tag> 

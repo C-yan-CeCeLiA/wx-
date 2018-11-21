@@ -8,7 +8,7 @@ Page({
    */
   data: {
     detail:null,
-    comment:null,
+    comment:[],
     like_status:false,
     like_count:0
   },
@@ -29,9 +29,9 @@ Page({
      })
     })
     comment.then(res=>{
-      console.log(res.comments)
+      console.log(res)
       this.setData({
-        comment:res.comments
+        comment:res
       })
     })
     fav.then(res=>{
