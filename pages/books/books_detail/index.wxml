@@ -45,3 +45,9 @@
     </view>
   </view>
 </view>
+<view class='sc-container'>
+  <view class='commentary'>
+    <text>请输入短评</text>
+  </view>
+  <v-like bind:like="onLike" like="{{like_status}}" count="{{like_count}}"  />
+</view>

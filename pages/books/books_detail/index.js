@@ -1,6 +1,8 @@
 // pages/books/books_detail/index.js
 import {bookModule} from "../../../modules/book.js";
+import { likeModule } from "../../../modules/like.js";
 const BookModule = new bookModule();
+const LikeModule = new likeModule();
 Page({
 
   /**
@@ -24,6 +26,8 @@ Page({
 
     detail.then((res)=>{
       console.log(res)
+      // 设置缓存
+    const storageBook = 
      this.setData({
        detail:res
      })
@@ -43,7 +47,10 @@ Page({
     })
 
   },
-
+  onLike(event){
+    let behavior =  event.detail.behavior;
+    LikeModule.like(behavior,this.data.detail.id,400)
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

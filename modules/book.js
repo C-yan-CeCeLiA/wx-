@@ -4,9 +4,8 @@ class bookModule extends HTTP{
    const hot_list =  this.request("/book/hot_list")
     return hot_list
   }
-  // _setHotListCache(data){
-  //   wx.setStorageSync("hot_list", data)
-  // }
+ 
+  
   getDetail(id){
     const detail = this.request(`/book/${id}/detail`)
     return detail
@@ -19,6 +18,13 @@ class bookModule extends HTTP{
     const fav = this.request(`/book/${id}/favor`)
     return fav
   }
+  _setStorage(id,data){
+    wx.setStorageSync(_getKey(id), data)
+  }
+  _getKey(id){
+    return "book-"+id;
+  }
+ 
  
 }
 export {
