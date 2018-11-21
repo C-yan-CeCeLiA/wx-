@@ -1,3 +1,4 @@
+<wxs src="../../../util/filter.wxs" module="m1" />
 <view class="container">
 
   <view class="head">
@@ -24,7 +25,7 @@
   <view class="sub-container">
     <text class="headline">内容简介</text>
     <!-- <text decode="{{true}}" class="content">{{util.format(book.summary)}}</text> -->
-    <text>{{detail.summary}}</text>
+    <text class='info' decode='{{true}}'>{{m1.format(detail.summary)}}</text>
   </view>
   <view class="sub-container">
     <text class="headline">书本信息</text>

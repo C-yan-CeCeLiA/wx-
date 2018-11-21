@@ -4,9 +4,9 @@ class bookModule extends HTTP{
    const hot_list =  this.request("/book/hot_list")
     return hot_list
   }
-  _setHotListCache(data){
-    wx.setStorageSync("hot_list", data)
-  }
+  // _setHotListCache(data){
+  //   wx.setStorageSync("hot_list", data)
+  // }
   getDetail(id){
     const detail = this.request(`/book/${id}/detail`)
     return detail

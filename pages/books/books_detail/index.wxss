@@ -253,3 +253,7 @@
 .ex-tag2{
   background: #eefbff !important;
 }
+.info{
+  font-weight: 500;
+  text-indent: 58rpx;
+}
