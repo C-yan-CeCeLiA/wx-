@@ -12,7 +12,8 @@ Page({
     detail:null,
     comment:[],
     like_status:false,
-    like_count:0
+    like_count:0,
+    posting:false
   },
 
   /**
@@ -35,7 +36,7 @@ Page({
     comment.then(res=>{
       console.log(res)
       this.setData({
-        comment:res
+        comment:res.comments
       })
     })
     fav.then(res=>{
@@ -50,6 +51,45 @@ Page({
   onLike(event){
     let behavior =  event.detail.behavior;
     LikeModule.like(behavior,this.data.detail.id,400)
+  },
+  onFaskPosting(event){
+    console.log(event)
+    this.setData({
+      posting:true
+    })
+  },
+  showCommentary(event){
+    console.log(event)
+    this.setData({
+      posting:false
+    })
+  },
+  postTagContent(event){
+    console.log(event.detail)
+    let tagContent = event.detail.content || event.detail.value;
+    if(tagContent.length > 12){
+      wx.showToast({
+        title: '最多输入12个字',
+        icon:''
+      })
+      return 
+    }
+    BookModule.addShortComment(this.data.detail.id, tagContent).then((res)=>{
+      wx.showToast({
+        title: '+1',
+        icon:'none'
+      })
+      this.data.comment.unshift({
+        content: tagContent,
+        nums:1
+      })
+      console.log(this.data.comment)
+      this.setData({
+        comment: this.data.comment,
+        posting: false
+      })
+    })
+
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -24,6 +24,9 @@ class bookModule extends HTTP{
   _getKey(id){
     return "book-"+id;
   }
+  addShortComment(id, content){
+    return this.request("/book/add/short_comment", {book_id: id, content:content},'POST')
+  }
  
  
 }

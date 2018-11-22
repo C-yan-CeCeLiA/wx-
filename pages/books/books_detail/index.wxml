@@ -8,11 +8,12 @@
   </view>
   <view class="sub-container">
     <text class="headline">短评</text>
-    <!-- <text class="shadow" wx:if="{{noComment}}">还没有短评</text> -->
+
+    <text class="shadow" wx:if="{{!comment}}">还没有短评</text>
     <view class="comment-container">
    
    
-      <block wx:for="{{m1.limit(comment.comments,15)}}" wx:key="index">
+      <block wx:for="{{m1.limit(comment,15)}}" wx:key="index">
         <v-tag  class="tag" tag-class="{{index==0 ? 'ex-tag1':'' || index==1 ? 'ex-tag2' : ''}}"  text="{{item.content}}">
           <text class="num" slot="after">{{'+' + item.nums}}</text>
         </v-tag> 
@@ -45,9 +46,41 @@
     </view>
   </view>
 </view>
-<view class='sc-container'>
-  <view class='commentary'>
+<view class='sc-container' hidden='{{posting}}' >
+  <view class='commentary' bindtap='onFaskPosting'>
     <text>请输入短评</text>
   </view>
   <v-like bind:like="onLike" like="{{like_status}}" count="{{like_count}}"  />
 </view>
+
+
+<view class='sc-container posting' hidden='{{!posting}}'  >
+  <view class='sc_sub_header'>
+    <text wx:if="{{comment !==false }}">点击标签+1</text>
+    <text wx:else>暂无标签+1</text>
+    <text class='canel' bindtap='showCommentary'>取消</text>
+  </view>
+  <view class='body_comment'>
+     <block wx:for="{{m1.limit(comment,3)}}" wx:key="index">
+        <v-tag  class="tag" tag-class="{{tool.highline(index)}}"  text="{{item.content}}" bind:Click = "postTagContent">
+          <text class="num" slot="after">{{'+' + item.nums}}</text>
+        </v-tag> 
+      </block>
+  </view>
+  <input type='text' bind:confirm="postTagContent" placeholder='仅可输入12字' class='post'></input>
+</view>
+<v-mask hidden='{{!posting}}'></v-mask>
+<wxs module="tool">
+  var highline = function(index){
+   if(index == 0){
+    return 'ex-tag1'
+   }
+   if(index === 1){
+    return 'ex-tag2'
+   }
+   return ''
+  }
+  module.exports = {
+    highline:highline
+  }
+</wxs>

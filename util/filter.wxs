@@ -4,7 +4,7 @@ var format =  function(text){
     return 
   }
   var reg = getRegExp("\\\\n", "g")
-  return text.replace(reg,"\n&nbsp;&nbsp;;&nbsp;;&nbsp;")
+  return text.replace(reg,"\n&nbsp;&nbsp;&nbsp;&nbsp;")
 }
 var limit = function(array,length){
   if(!array){

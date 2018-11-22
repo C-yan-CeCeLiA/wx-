@@ -23,7 +23,14 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    OnClike(event){
+      let content = this.properties.text;
+      console.log(this.properties.text)
     
+      this.triggerEvent('Click',{
+        content:content
+      },{})
+    }
      
   }
 })
