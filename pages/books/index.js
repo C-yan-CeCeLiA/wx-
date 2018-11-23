@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    books:null
+    books:null,
+    searching:false
   },
 
   /**
@@ -20,12 +21,27 @@ Page({
       })
     })
   },
-
+// 跳转到search页面
+  _Tosearch(){
+    this.setData({
+      searching: true
+    })
+  },
+  // 取消搜索
+  _cancel(event){
+    console.log(event)
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
     
+  },
+  _cancel(evnet){
+    console.log(evnet)
+    this.setData({
+      searching: false
+    })
   },
 
   /**

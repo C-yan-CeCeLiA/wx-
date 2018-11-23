@@ -4,7 +4,7 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    searching:Boolean
   },
 
   /**
@@ -18,8 +18,12 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    _Tosearch(){
-      
+    oncancel(event) {
+
+      this.triggerEvent("cancel", {}, {})
+      // this.setData({
+      //   searching:true
+      // })
     }
   }
 })

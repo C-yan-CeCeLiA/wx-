@@ -20,32 +20,43 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (opt) {
+    wx.showLoading({
+      title: '',
+    })
     let id = opt.bid
     let detail = BookModule.getDetail(id);
     let comment = BookModule.getComment(id);
     let fav = BookModule.getListStaute(id);
-
-    detail.then((res)=>{
-      console.log(res)
-      // 设置缓存
-    const storageBook = 
-     this.setData({
-       detail:res
-     })
-    })
-    comment.then(res=>{
-      console.log(res)
+    Promise.all([detail, comment, fav]).then((res)=>{
+      wx.hideLoading()
       this.setData({
-        comment:res.comments
+        detail:res[0],
+        comment: res[1].comments,
+        like_count: res[2].fav_nums,
+        like_status: res[2].like_status
       })
     })
-    fav.then(res=>{
-      console.log(res)
-      this.setData({
-        like_count: res.fav_nums,
-        like_status: res.like_status
-      })
-    })
+    // detail.then((res)=>{
+    //   console.log(res)
+    //   // 设置缓存
+    // const storageBook = 
+    //  this.setData({
+    //    detail:res
+    //  })
+    // })
+    // comment.then(res=>{
+    //   console.log(res)
+    //   this.setData({
+    //     comment:res.comments
+    //   })
+    // })
+    // fav.then(res=>{
+    //   console.log(res)
+    //   this.setData({
+    //     like_count: res.fav_nums,
+    //     like_status: res.like_status
+    //   })
+    // })
 
   },
   onLike(event){
@@ -65,6 +76,7 @@ Page({
     })
   },
   postTagContent(event){
+    
     console.log(event.detail)
     let tagContent = event.detail.content || event.detail.value;
     if(tagContent.length > 12){

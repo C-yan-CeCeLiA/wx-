@@ -1,13 +1,15 @@
 
-<view class='container'>
-  <!-- <view class="header">
-    <view class='search'>
-      <image src='../../images/book/search.png'></image>
-      <text>搜索书籍</text>
+<view class='container' hidden='{{searching}}' >
+  <view class='header-container' bindtap='_Tosearch'>
+    <view class="header">
+      <view class='search'>
+        <image src='../../images/book/search.png'></image>
+        <text>搜索书籍</text>
+      </view>
     </view>
-    
-  </view> -->
-  <v-search />
+  </view>
+ 
+
   <view class='sub-container'>
     <view class='sub-header'>
       <image src='../../images/book/quality.png'></image>
@@ -19,3 +21,4 @@
     </view>
   </view>
 </view>
+<v-search searching="{{!searching}}" bindcancel="_cancel" />
