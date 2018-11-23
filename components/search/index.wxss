@@ -114,6 +114,8 @@
   margin-top: 24rpx;
   padding-left: 15px;
   width: 630rpx;
+  margin:0 10rpx;
+
 }
 
 .tags tag-cmp {
@@ -148,4 +150,10 @@
 
 .test {
   background-color: #000;
+}
+
+.tag {
+  margin-right: 15rpx;
+  margin-bottom: 10rpx;
+  border-radius: 15px !important;
 }
