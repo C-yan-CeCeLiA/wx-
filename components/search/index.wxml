@@ -8,7 +8,7 @@
     </view>
     <view class='cancel' bindtap='oncancel'>取消</view>
   </view>
-  <view>
+  <view wx:if="{{!off}}">
     <view class='history'>
       <view class='title'>
         <view class='chunk'></view>
@@ -16,23 +16,27 @@
        
       </view>
       <view class='tags'>
-          <block wx:for="{{historyKey}}" >
+          <block wx:for="{{historyKey}}" wx:key="{{item.id}}" >
             <v-tag text="{{item}}"  class="tag" />
           </block>
         </view>
     </view>
-    
-  </view>
-  <view class='history hot-search'>
+    <view class='history hot-search'>
       <view class='title'>
         <view class='chunk'></view>
         <text>热门搜索</text>
        
       </view>
       <view class='tags'>
-          <block wx:for="{{hotList}}">
+          <block wx:for="{{hotList}}" wx:key="{{item.id}}">
             <v-tag class="tag" text="{{item}}" />
           </block>
       </view>
+    </view>
+  </view>
+  <view wx:if="{{off}}" class='books-container'>
+    <block wx:for="{{BookArray}}" wx:key="{{item.id}}">
+      <v-book book="{{item}}" />
+    </block>
   </view>
 </view>

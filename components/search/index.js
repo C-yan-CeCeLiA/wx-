@@ -18,7 +18,8 @@ Component({
   data: {
     historyKey:[],
     hotList: [],
-    BookArray:[]
+    BookArray:[],
+    off:false
   },
 
   attached(){
@@ -44,6 +45,9 @@ Component({
       this.triggerEvent("cancel", {}, {})
     },
     onConfirm(event){
+      this.setData({
+        off:!this.data.off
+      })
       let word = event.detail.value;
       
       Ketword.search(word).then((res)=>{

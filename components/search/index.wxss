@@ -157,3 +157,16 @@
   margin-bottom: 10rpx;
   border-radius: 15px !important;
 }
+
+
+/* book组件 */
+.books-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 0 90rpx;
+  justify-content: space-between;
+}
+.books-container v-book{
+  margin-top:10rpx;
+}
