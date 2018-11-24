@@ -26,6 +26,7 @@ Component({
     off:false,
     q:"",
     total:0,
+    loading:false,
   },
 
   attached(){
@@ -51,6 +52,9 @@ Component({
      if(!this.data.q){
        return 
      }
+     if(this.data.loading){
+       return 
+     }
     
       if (this.data.BookArray.length == this.data.total){
 
@@ -61,6 +65,7 @@ Component({
         return
       }
       let length = this.data.BookArray.length;
+      this.data.loading = true;
       Ketword.search(this.data.q, length).then(res=>{
        
           
@@ -68,6 +73,7 @@ Component({
         this.setData({
           BookArray: tempArray
         })
+        this.data.loading = false
       
       
        
