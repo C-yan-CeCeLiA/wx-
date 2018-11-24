@@ -17,7 +17,8 @@ Component({
    */
   data: {
     historyKey:[],
-    hotList: []
+    hotList: [],
+    BookArray:[]
   },
 
   attached(){
@@ -44,7 +45,14 @@ Component({
     },
     onConfirm(event){
       let word = event.detail.value;
-      Ketword.addToHistory(word)
+      
+      Ketword.search(word).then((res)=>{
+        console.log(res)
+        this.setData({
+          BookArray:res.books
+        })
+        Ketword.addToHistory(word)
+      })
 
     },
     clear(){
