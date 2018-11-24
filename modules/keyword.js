@@ -36,7 +36,7 @@ class keywordModule extends HTTP{
   }
   // 搜索
   search(q,start = 0){
-    return this.request("/book/search?summary=1", { start: start, q:q})
+    return this.request("/book/search?summary=1", { start: start, q:q })
   }
 }
 export {

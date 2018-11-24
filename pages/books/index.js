@@ -7,7 +7,8 @@ Page({
    */
   data: {
     books:null,
-    searching:false
+    searching:false,
+    more:false
   },
 
   /**
@@ -44,6 +45,7 @@ Page({
     })
   },
 
+
   /**
    * 生命周期函数--监听页面显示
    */
@@ -76,7 +78,9 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    
+    this.setData({
+      more: !this.data.more
+    })
   },
 
   /**

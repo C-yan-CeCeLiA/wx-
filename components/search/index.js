@@ -3,13 +3,17 @@ import {
   keywordModule
 } from "../../modules/keyword.js"
 const Ketword = new keywordModule();
+
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-    searching:Boolean
-   
+    searching:Boolean,
+    more:{
+      type:Boolean,
+      observer:"_load_more"
+    }
   },
 
   /**
@@ -20,7 +24,8 @@ Component({
     hotList: [],
     BookArray:[],
     off:false,
-    q:""
+    q:"",
+    total:0,
   },
 
   attached(){
@@ -42,21 +47,51 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    _load_more(){
+     if(!this.data.q){
+       return 
+     }
+    
+      if (this.data.BookArray.length == this.data.total){
+
+        wx.showToast({
+          title: '没有更多了',
+          icon:"none"
+        })
+        return
+      }
+      let length = this.data.BookArray.length;
+      Ketword.search(this.data.q, length).then(res=>{
+       
+          
+        let tempArray = this.data.BookArray.concat(res.books);
+        this.setData({
+          BookArray: tempArray
+        })
+      
+      
+       
+      })
+    },
+
+
+
     oncancel(event) {
       this.triggerEvent("cancel", {}, {})
     },
     onConfirm(event){
-      console.log()
+
       this.setData({
         off:true
       })
       let word = event.detail.value || event.detail.content;
       
       Ketword.search(word).then((res)=>{
-        console.log(res)
+
         this.setData({
           BookArray:res.books,
-          q:word
+          q:word,
+          total: res.total
         })
         Ketword.addToHistory(word)
       })

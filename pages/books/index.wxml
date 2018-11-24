@@ -21,4 +21,4 @@
     </view>
   </view>
 </view>
-<v-search wx:if="{{searching}}" bindcancel="_cancel" />
+<v-search wx:if="{{searching}}" more="{{more}}" bindcancel="_cancel" />
