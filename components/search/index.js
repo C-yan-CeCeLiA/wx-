@@ -46,7 +46,7 @@ Component({
     },
     onConfirm(event){
       this.setData({
-        off:!this.data.off
+        off:true
       })
       let word = event.detail.value;
       
@@ -60,7 +60,9 @@ Component({
 
     },
     clear(){
-
+      this.setData({
+        off:false
+      })
     }
   }
 })
