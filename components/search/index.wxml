@@ -17,7 +17,7 @@
       </view>
       <view class='tags'>
           <block wx:for="{{historyKey}}" wx:key="{{item.id}}" >
-            <v-tag text="{{item}}"  class="tag" />
+            <v-tag text="{{item}}"  class="tag"  bindClick="onConfirm" />
           </block>
         </view>
     </view>
@@ -28,13 +28,13 @@
        
       </view>
       <view class='tags'>
-          <block wx:for="{{hotList}}" wx:key="{{item.id}}">
-            <v-tag class="tag" text="{{item}}" />
+          <block wx:for="{{hotList}}" wx:key="{{item.id}}"  >
+            <v-tag class="tag" text="{{item}}" bindClick="onConfirm" />
           </block>
       </view>
     </view>
   </view>
-  <view wx:if="{{off}}" class='books-container'>
+  <view wx:if="{{off}}" class='books-container' >
     <block wx:for="{{BookArray}}" wx:key="{{item.id}}">
       <v-book book="{{item}}" />
     </block>

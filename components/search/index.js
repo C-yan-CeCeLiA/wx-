@@ -45,10 +45,11 @@ Component({
       this.triggerEvent("cancel", {}, {})
     },
     onConfirm(event){
+      console.log()
       this.setData({
         off:true
       })
-      let word = event.detail.value;
+      let word = event.detail.value || event.detail.content;
       
       Ketword.search(word).then((res)=>{
         console.log(res)
