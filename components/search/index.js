@@ -19,7 +19,8 @@ Component({
     historyKey:[],
     hotList: [],
     BookArray:[],
-    off:false
+    off:false,
+    q:""
   },
 
   attached(){
@@ -54,7 +55,8 @@ Component({
       Ketword.search(word).then((res)=>{
         console.log(res)
         this.setData({
-          BookArray:res.books
+          BookArray:res.books,
+          q:word
         })
         Ketword.addToHistory(word)
       })
@@ -62,7 +64,8 @@ Component({
     },
     clear(){
       this.setData({
-        off:false
+        off:false,
+        q:""
       })
     }
   }
