@@ -30,6 +30,7 @@ Component({
     q:"",
     // total:0,
     loading:false,
+    loadingCenter:false
   },
 
   attached(){
@@ -61,11 +62,13 @@ Component({
      }
       let has = this.hasMore()
       if (has){
-        this.data.loading = true;
+        this._loadOn()
         let length = this.getCurrentStart();
         Ketword.search(this.data.q, length).then(res => {
           this.setMoreData(res.books)
-          this.data.loading = false
+          this._loadOff()
+        },()=>{
+          this._loadOff()
         })
       }else{
         wx.showToast({
@@ -78,20 +81,29 @@ Component({
 
 
     oncancel(event) {
+      this.init()
       this.triggerEvent("cancel", {}, {})
     },
     onConfirm(event){
+     this._LoadingCenter()
       this.setData({
         off:true
       })
       let word = event.detail.value || event.detail.content;
       Ketword.search(word).then((res)=>{
+        this._hideLoading()
         this.setMoreData(res.books),
         this.setTotal(res.total)
         this.setData({
           q:word,
         })
         Ketword.addToHistory(word)
+      },()=>{
+        this._hideLoading();
+        wx.showToast({
+          title: '遇到个错误，请稍后重试',
+          icon:none
+        })
       })
 
     },
@@ -100,6 +112,28 @@ Component({
         off:false,
         q:""
       })
+      this.init()
+    },
+    _LoadingCenter(){
+      this.setData({
+        loadingCenter:true
+      })
+    },
+    _hideLoading(){
+      this.setData({
+        loadingCenter:false
+      })
+    },
+    _loadOn(){
+      this.setData({
+        loading:true
+      })
+    },
+    _loadOff(){
+      this.setData({
+        loading:false
+      })
     }
+
   }
 })

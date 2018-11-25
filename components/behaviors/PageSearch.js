@@ -1,7 +1,8 @@
 const searchBeh = Behavior({
   data:{
     BookArray:[],
-    total:0
+    total:0,
+    noneResult:false
   },
   methods:{
     setMoreData(newBookArray){
@@ -15,6 +16,11 @@ const searchBeh = Behavior({
     },
     setTotal(total){
       this.data.total = total
+      if(total == 0){
+        this.setData({
+          noneResult:true
+        })
+      }
     },
     hasMore(){
       if(this.data.BookArray.length >= this.data.total){
@@ -22,6 +28,14 @@ const searchBeh = Behavior({
       }else{
         return true
       }
+    },
+    init(){
+      this.setData({
+        BookArray:[],
+        total:0,
+        noneResult:false
+      })
+      // this.BookArray = []
     }
   }
 

@@ -10,13 +10,13 @@
   </view>
  
 
-  <view class='sub-container'>
+  <view class='sub-container' >
     <view class='sub-header'>
       <image src='../../images/book/quality.png'></image>
     </view>
     <view class='books-container'>
       <block wx:for="{{books}}" wx:key="id">
-        <v-book book="{{item}}" />
+        <v-book book="{{item}}" showLikeStatus="{{false}}" />
       </block>
     </view>
   </view>

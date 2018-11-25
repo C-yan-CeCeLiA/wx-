@@ -5,7 +5,7 @@
     <view class='describe'>
       <text class='title'>{{book.title}}</text>
       <text class='author'>{{book.author}}</text>
-      <view class='like'>{{book.fav_nums}}喜欢</view>
+      <view class='like' hidden='{{showLikeStatus}}'>{{book.fav_nums}}喜欢</view>
     </view>
   </view>
 

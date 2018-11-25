@@ -4,7 +4,8 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    book:Object
+    book:Object,
+    showLikeStatus:Boolean
   },
 
   /**
@@ -23,6 +24,7 @@ Component({
      wx.navigateTo({
        url: `./books_detail/index?bid=${bid}`,
      })
-    }
+    },
+    
   }
 })

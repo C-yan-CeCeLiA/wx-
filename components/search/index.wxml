@@ -36,7 +36,12 @@
   </view>
   <view wx:if="{{off}}" class='books-container' >
     <block wx:for="{{BookArray}}" wx:key="{{item.id}}">
-      <v-book book="{{item}}" />
+      <v-book book="{{item}}" showLikeStatus="{{true}}" />
     </block>
   </view>
+  <view class='noneResult' wx:if="{{noneResult}}">搜索的书籍不存在</view>
+
+  <v-loading class="loading-center" wx:if="{{loadingCenter}}" />
+  <v-loading class="loading_more" wx:if="{{loading}}"  />
+ 
 </view>

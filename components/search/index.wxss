@@ -56,6 +56,7 @@
   flex-wrap: wrap;
   padding: 0 90rpx 0 90rpx;
   justify-content: space-between;
+  margin-bottom: 70rpx;
 }
 
 .loading {
@@ -170,3 +171,8 @@
 .books-container v-book{
   margin-top:10rpx;
 }
+.loading_more{
+  position: fixed;
+  bottom: 10rpx;
+}
+  
