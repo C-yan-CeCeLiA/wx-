@@ -1,11 +1,18 @@
 // pages/like/like.js
+import { bookModule } from "../../modules/book.js";
+let BookModule = new bookModule();
+import { classicModules } from "../../modules/classic.js";
+let classicModule = new classicModules();
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    auto:false,
+    userInfo:null,
+    bookCount:0
   },
   getuseinfo(event){
 
@@ -15,7 +22,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
     this.userAutomatic()
+    this.getMyBookCount()
   },
   userAutomatic(){
     wx.getSetting({
@@ -23,7 +32,10 @@ Page({
         if (data.authSetting["scope.userInfo"]){
           wx.getUserInfo({
             success:data=>{
-              console.log(data)
+              this.setData({
+                auto:true,
+                userInfo:data.userInfo
+              })
             }
           })
         }else{
@@ -33,11 +45,19 @@ Page({
       }
     })
   },
+ 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
 
+  },
+  getMyBookCount() {
+    BookModule.getMyBookCount().then(res => {
+     this.setData({
+       bookCount:res.count
+     })
+    })
   },
 
   /**
@@ -46,7 +66,21 @@ Page({
   onShow: function () {
 
   },
-
+  onGetUserInfo(event){
+    console.log(event)
+    let userInfo = event.detail.userInfo;
+    if(userInfo){
+      this.setData({
+        userInfo,
+        auto: true
+      })
+    }
+  },
+  ToAbout(){
+    wx.navigateTo({
+      url: '/pages/about/index',
+    })
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */

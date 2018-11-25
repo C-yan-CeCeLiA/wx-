@@ -27,7 +27,9 @@ class bookModule extends HTTP{
   addShortComment(id, content){
     return this.request("/book/add/short_comment", {book_id: id, content:content},'POST')
   }
- 
+ getMyBookCount(){
+   return this.request("/book/favor/count")
+ }
  
 }
 export {

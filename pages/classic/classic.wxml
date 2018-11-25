@@ -1,7 +1,13 @@
 <view class='container'>
   <view class='header'>
     <v-epsoide class="epsoide" index="{{classicData.index}}" />
-    <v-like bindlike="onlike" like="{{like_status}}" count="{{fav_nums}}" class="like" />
+    <view class='like-container'>
+      <v-like bindlike="onlike" like="{{like_status}}" count="{{fav_nums}}" class="like" />
+      <v-button class="share-btn" open-type="share">
+          <image class="share" slot="img" src="/images/icon/share.png" />
+      </v-button>
+    </view>  
+   
 
   </view>
 
