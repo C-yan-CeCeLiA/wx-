@@ -7,14 +7,32 @@ Page({
   data: {
 
   },
+  getuseinfo(event){
 
+    // console.log(event)
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.userAutomatic()
   },
+  userAutomatic(){
+    wx.getSetting({
+      success:data=>{
+        if (data.authSetting["scope.userInfo"]){
+          wx.getUserInfo({
+            success:data=>{
+              console.log(data)
+            }
+          })
+        }else{
+          console.log("err")
+        }
 
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
