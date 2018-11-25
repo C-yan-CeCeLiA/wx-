@@ -1,32 +1,32 @@
-let searchBehaviors = Behavior({
-  data: {
+const searchBeh = Behavior({
+  data:{
     BookArray:[],
     total:0
   },
-  method:{
-    setMore(newBookArray) {
-      let temp = this.data.BookArray.concat(newBookArray)
-      console.log(temp)
+  methods:{
+    setMoreData(newBookArray){
+      const temp = this.data.BookArray.concat(newBookArray)
       this.setData({
-        BookArray: temp
+        BookArray:temp
       })
     },
-    getCurrentStart() {
+    getCurrentStart(){
       return this.data.BookArray.length
     },
-    hasMore() {
-
-      if (this.getCurrentStart >= this.data.total) {
-        return false
-      }
-      return true
-    },
-    _setTotal(total) {
+    setTotal(total){
       this.data.total = total
+    },
+    hasMore(){
+      if(this.data.BookArray.length >= this.data.total){
+        return false
+      }else{
+        return true
+      }
     }
   }
- 
+
+
 })
 export{
-  searchBehaviors
+  searchBeh
 }
