@@ -20,5 +20,12 @@
 
     </view>
   </view>
- 
+ <view class='like-container'>
+    <image class='headline' src='/images/my/like.png'></image>
+    <view class='preview-container'>
+      <block wx:for="{{classic}}">
+        <v-preview class="preview" classic="{{item}}" />
+      </block>
+    </view>
+ </view>
 </view>

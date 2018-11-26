@@ -57,6 +57,14 @@ getClassic(index,nextorprevious,scallback){
     // console.log(this._getLastetIndex())
     return index == this._getLastetIndex(index)
   }
+  getMyFavor(success){
+    const params = {
+      url:"/classic/favor",
+      success:success
+    }
+    this.request(params)
+  }
+
   // 设置缓存最新一期的index
   _setLastetIndex(index){
 

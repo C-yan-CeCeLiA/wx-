@@ -9,6 +9,9 @@ Component({
     },
     count:{
       type:Number
+    },
+    readOnly:{
+      type:Boolean
     }
   },
 
@@ -25,6 +28,9 @@ Component({
    */
   methods: {
     praise:function(){
+      if (this.properties.readOnly){
+        return 
+      }
       let count = this.properties.count;
       let like = this.properties.like;
       like = !like;

@@ -12,7 +12,8 @@ Page({
   data: {
     auto:false,
     userInfo:null,
-    bookCount:0
+    bookCount:0,
+    classic:null
   },
   getuseinfo(event){
 
@@ -25,6 +26,7 @@ Page({
 
     this.userAutomatic()
     this.getMyBookCount()
+    this.getMyFavor()
   },
   userAutomatic(){
     wx.getSetting({
@@ -50,7 +52,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+   
   },
   getMyBookCount() {
     BookModule.getMyBookCount().then(res => {
@@ -79,6 +81,13 @@ Page({
   ToAbout(){
     wx.navigateTo({
       url: '/pages/about/index',
+    })
+  },
+  getMyFavor(){
+    classicModule.getMyFavor(res=>{
+     this.setData({
+       classic: res
+     })
     })
   },
   /**
